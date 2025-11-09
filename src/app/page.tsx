@@ -76,6 +76,7 @@ export default function Home() {
             }
             audioSrc="/music/haldi-music.mp3"
             venueLink="https://share.google/F6SFW4f1yEs2wAwrR"
+            className="w-full!"
           />
 
           {/* Sangeet Card */}
@@ -94,6 +95,7 @@ export default function Home() {
             }
             audioSrc="/music/sangeet-music.mp3"
             venueLink="https://share.google/F6SFW4f1yEs2wAwrR"
+            className="w-auto!"
           />
         </div>
       </div>
@@ -154,6 +156,7 @@ function InvitationCard({
   onToggle,
   audioSrc,
   venueLink,
+  className,
 }: {
   title: string;
   image: string;
@@ -167,6 +170,7 @@ function InvitationCard({
   onToggle: () => void;
   audioSrc?: string;
   venueLink?: string;
+  className?: string;
 }) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -217,7 +221,7 @@ function InvitationCard({
             src={image}
             alt={title}
             fill
-            className="object-cover transition-transform duration-700 group-hover:scale-110 h-full w-auto! mx-auto"
+            className={`object-cover transition-transform duration-700 group-hover:scale-110 h-full mx-auto ${className}`}
             sizes="(max-width: 768px) 100vw, 50vw"
             priority
             unoptimized
