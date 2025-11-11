@@ -5,7 +5,9 @@ import Image from "next/image";
 
 export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
-  const [expandedCard, setExpandedCard] = useState<string | null>(null);
+  const [expandedCard, setExpandedCard] = useState<"mehendi" | "haldi" | null>(
+    null
+  );
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -60,12 +62,31 @@ export default function Home() {
 
         {/* Invitation Cards */}
         <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
+          {/* Mehendi Card */}
+          <InvitationCard
+            title="Mehendi Celebration"
+            image="/images/mehendi-image.jpg"
+            gradient="from-emerald-400 via-lime-400 to-amber-300"
+            date="November 21, 2025"
+            time="8:00 PM"
+            venue="The Garden Pavilion"
+            description="A night adorned with intricate henna art, music, and laughter"
+            emoji="🌿"
+            isExpanded={expandedCard === "mehendi"}
+            onToggle={() =>
+              setExpandedCard(expandedCard === "mehendi" ? null : "mehendi")
+            }
+            audioSrc="/music/haldi-music.mp3"
+            venueLink="https://share.google/F6SFW4f1yEs2wAwrR"
+            className="w-full!"
+          />
+
           {/* Haldi Card */}
           <InvitationCard
             title="Haldi Ceremony"
-            image="/images/haldi-image.webp"
+            image="/images/haldi-image.jpg"
             gradient="from-yellow-400 via-amber-400 to-orange-400"
-            date="Novemnber 22, 2025"
+            date="November 22, 2025"
             time="10:00 AM"
             venue="The Garden Pavilion"
             description="A traditional ceremony filled with turmeric, blessings, and joy"
@@ -78,25 +99,6 @@ export default function Home() {
             venueLink="https://share.google/F6SFW4f1yEs2wAwrR"
             className="w-full!"
           />
-
-          {/* Sangeet Card */}
-          <InvitationCard
-            title="Sangeet Night"
-            image="/images/sangeet-image.png"
-            gradient="from-purple-500 via-pink-500 to-rose-500"
-            date="November 22, 2025"
-            time="7:00 PM"
-            venue="Flag's Banquet Liberty Garden"
-            description="An evening of music, dance, and unforgettable memories"
-            emoji="🎵"
-            isExpanded={expandedCard === "sangeet"}
-            onToggle={() =>
-              setExpandedCard(expandedCard === "sangeet" ? null : "sangeet")
-            }
-            audioSrc="/music/sangeet-music.mp3"
-            venueLink="https://share.google/F6SFW4f1yEs2wAwrR"
-            className="w-auto!"
-          />
         </div>
       </div>
     </main>
@@ -105,8 +107,18 @@ export default function Home() {
 
 function SplashScreen() {
   return (
-    <div className="fixed inset-0 bg-linear-to-br from-amber-400 via-rose-400 to-purple-500 flex items-center justify-center z-50 animate-gradient overflow-hidden">
-      {/* Sparkle effects */}
+    <div className="fixed inset-0 flex items-center justify-center z-50 overflow-hidden">
+      <div className="absolute inset-0">
+        <Image
+          src="/images/screen-image.jpg"
+          alt="Wedding Celebration"
+          fill
+          className="object-cover object-top"
+          priority
+        />
+      </div>
+      <div className="absolute inset-0 bg-linear-to-br from-black/70 via-black/40 to-black/70 mix-blend-multiply"></div>
+      <div className="absolute inset-0 bg-linear-to-br from-amber-400/30 via-rose-400/30 to-purple-500/30"></div>
       <div className="sparkles">
         <div className="sparkle"></div>
         <div className="sparkle"></div>
@@ -116,7 +128,6 @@ function SplashScreen() {
       </div>
 
       <div className="text-center relative z-10">
-        {/* Rings animation around logo */}
         <div className="relative mb-8">
           <div className="animate-scaleIn relative z-10">
             <div className="w-48 h-48 md:w-64 md:h-64 mx-auto bg-white/95 backdrop-blur-md rounded-[50%] flex items-center justify-center shadow-2xl p-4 overflow-hidden rotate-in">
@@ -214,7 +225,7 @@ function InvitationCard({
         {/* Image Section */}
         <div
           className={`relative overflow-hidden transition-all duration-700 ${
-            isExpanded ? "h-72 md:h-96" : "h-64 md:h-80"
+            isExpanded ? "h-72 md:h-96" : "h-90 sm:h-100"
           }`}
         >
           <Image
