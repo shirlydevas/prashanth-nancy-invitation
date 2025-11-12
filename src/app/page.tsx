@@ -68,16 +68,16 @@ export default function Home() {
             image="/images/mehendi-image.jpg"
             gradient="from-emerald-400 via-lime-400 to-amber-300"
             date="November 21, 2025"
-            time="8:00 PM"
-            venue="The Garden Pavilion"
+            time="10:00 AM"
+            venue="1009, Mother Teresa Society, Malad West, Mumbai"
             description="A night adorned with intricate henna art, music, and laughter"
             emoji="🌿"
             isExpanded={expandedCard === "mehendi"}
             onToggle={() =>
               setExpandedCard(expandedCard === "mehendi" ? null : "mehendi")
             }
-            audioSrc="/music/haldi-music.mp3"
-            venueLink="https://share.google/F6SFW4f1yEs2wAwrR"
+            audioSrc="/music/mehendi-music.mp3"
+            venueLink="https://maps.app.goo.gl/cR2Q3wCYhqMrGgB58"
             className="w-full!"
           />
 
@@ -87,8 +87,8 @@ export default function Home() {
             image="/images/haldi-image.jpg"
             gradient="from-yellow-400 via-amber-400 to-orange-400"
             date="November 22, 2025"
-            time="10:00 AM"
-            venue="The Garden Pavilion"
+            time="9:00 AM"
+            venue="1009, Mother Teresa Society, Malad West, Mumbai"
             description="A traditional ceremony filled with turmeric, blessings, and joy"
             emoji="🌼"
             isExpanded={expandedCard === "haldi"}
@@ -96,7 +96,7 @@ export default function Home() {
               setExpandedCard(expandedCard === "haldi" ? null : "haldi")
             }
             audioSrc="/music/haldi-music.mp3"
-            venueLink="https://share.google/F6SFW4f1yEs2wAwrR"
+            venueLink="https://maps.app.goo.gl/cR2Q3wCYhqMrGgB58"
             className="w-full!"
           />
         </div>
@@ -250,7 +250,7 @@ function InvitationCard({
                 <div className="text-5xl md:text-6xl mb-2 animate-bounce-subtle">
                   {emoji}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-white drop-shadow-lg">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white drop-shadow-lg">
                   {title}
                 </h2>
               </div>
@@ -331,7 +331,7 @@ function InvitationCard({
                 >
                   <span className="text-white text-xl">📍</span>
                 </div>
-                <div>
+                <div className="sm:w-full w-[74%]">
                   <p className="text-xs text-gray-500 uppercase tracking-wide font-semibold">
                     Venue
                   </p>
