@@ -14,7 +14,28 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Prashanth & Nancy's Invitation",
-  description: "Join us for a special celebration",
+  description:
+    "You are warmly invited to celebrate the wedding festivities of Prashanth & Nancy.",
+  openGraph: {
+    title: "Prashanth & Nancy's Invitation",
+    description:
+      "You are warmly invited to celebrate the wedding festivities of Prashanth & Nancy.",
+    images: [
+      {
+        url: "/images/screen-image.jpg",
+        width: 1600,
+        height: 900,
+        alt: "Prashanth & Nancy Wedding Invitation",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Prashanth & Nancy's Invitation",
+    description:
+      "You are warmly invited to celebrate the wedding festivities of Prashanth & Nancy.",
+    images: ["/images/screen-image.jpg"],
+  },
 };
 
 export default function RootLayout({
