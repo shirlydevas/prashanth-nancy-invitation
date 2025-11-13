@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     url: siteUrl,
     images: [
       {
-        url: "/images/screen-image.jpg",
+        url: "/images/haldi-image.jpg?v=20241112",
         width: 1600,
         height: 900,
         alt: "Prashanth & Nancy Wedding Invitation",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     title: "Prashanth & Nancy's Invitation",
     description:
       "You are warmly invited to celebrate the wedding festivities of Prashanth & Nancy.",
-    images: ["/images/screen-image.jpg"],
+    images: ["/images/haldi-image.jpg?v=20241112"],
   },
 };
 

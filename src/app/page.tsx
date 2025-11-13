@@ -5,9 +5,7 @@ import Image from "next/image";
 
 export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
-  const [expandedCard, setExpandedCard] = useState<"mehendi" | "haldi" | null>(
-    null
-  );
+  const [expandedCard, setExpandedCard] = useState<"haldi" | null>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -48,9 +46,10 @@ export default function Home() {
             </p>
             <p className="text-base md:text-lg text-gray-600 italic animate-slideUp-delay-1">
               Together with our families, we joyfully invite you to celebrate
+              our Haldi ceremony.
             </p>
             <p className="text-base md:text-lg text-gray-700 font-medium animate-slideUp-delay-2">
-              Click on each card below to reveal the celebration details
+              Tap the card below to reveal the celebration details
             </p>
             <div className="flex items-center justify-center gap-4 mt-4 text-3xl animate-slideUp-delay-3">
               <span className="animate-bounce-subtle">🎉</span>
@@ -61,26 +60,7 @@ export default function Home() {
         </div>
 
         {/* Invitation Cards */}
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
-          {/* Mehendi Card */}
-          <InvitationCard
-            title="Mehendi Celebration"
-            image="/images/mehendi-image.jpg"
-            gradient="from-emerald-400 via-lime-400 to-amber-300"
-            date="November 21, 2025"
-            time="10:00 AM"
-            venue="1009, Mother Teresa Society, Malad West, Mumbai"
-            description="A night adorned with intricate henna art, music, and laughter"
-            emoji="🌿"
-            isExpanded={expandedCard === "mehendi"}
-            onToggle={() =>
-              setExpandedCard(expandedCard === "mehendi" ? null : "mehendi")
-            }
-            audioSrc="/music/mehendi-music.mp3"
-            venueLink="https://maps.app.goo.gl/cR2Q3wCYhqMrGgB58"
-            className="w-full!"
-          />
-
+        <div className="max-w-3xl mx-auto">
           {/* Haldi Card */}
           <InvitationCard
             title="Haldi Ceremony"
@@ -111,9 +91,9 @@ function SplashScreen() {
       <div className="absolute inset-0">
         <Image
           src="/images/screen-image.jpg"
-          alt="Wedding Celebration"
+          alt="Haldi Celebration"
           fill
-          className="object-cover object-top"
+          className="object-cover object-center"
           priority
         />
       </div>
@@ -209,7 +189,7 @@ function InvitationCard({
   return (
     <div
       className={`group relative overflow-hidden rounded-3xl shadow-2xl transition-all duration-700 cursor-pointer animate-slideUp ${
-        isExpanded ? "md:col-span-2 scale-[1.02]" : "hover:scale-[1.02]"
+        isExpanded ? "scale-[1.02]" : "hover:scale-[1.02]"
       }`}
       onClick={onToggle}
     >
@@ -331,7 +311,7 @@ function InvitationCard({
                 >
                   <span className="text-white text-xl">📍</span>
                 </div>
-                <div className="sm:w-full w-[74%]">
+                <div className="sm:w-[85%] w-[74%]">
                   <p className="text-xs text-gray-500 uppercase tracking-wide font-semibold">
                     Venue
                   </p>
